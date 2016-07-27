@@ -1,0 +1,16 @@
+{{#each model as |user|}}
+	{{#paper-card as |card|}}
+		{{#card.title as |title|}}
+			{{#title.text as |text|}}
+				{{#text.headline}}User Card{{/text.headline}}
+				{{#text.subhead}}{{user.login}}{{/text.subhead}}
+			{{/title.text}}
+			{{title.media size="lg" src=user.avatarUrl title=user.login}}
+		{{/card.title}}
+		{{#card.actions}}
+			{{#link-to 'user' user.login}}
+				{{#paper-button iconButton=true}}{{paper-icon "view-list"}}{{/paper-button}}
+			{{/link-to}}
+		{{/card.actions}}
+	{{/paper-card}}
+{{/each}}
